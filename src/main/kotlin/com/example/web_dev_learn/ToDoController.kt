@@ -1,12 +1,10 @@
 package com.example.web_dev_learn
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
 import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @RestController
+@RequestMapping("/api")
 class ToDoController(
     private val todoRepo: ToDoRepository
 ) {
