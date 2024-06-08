@@ -9,7 +9,7 @@ data class TodoItem(
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
     val title: String,
-    val desc: String,
+    val description: String,
     @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
     val subtodos: List<TodoItem>,
     val status: Status,

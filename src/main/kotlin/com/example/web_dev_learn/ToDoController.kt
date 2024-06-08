@@ -12,7 +12,7 @@ class ToDoController(
         todoRepo.save(
             TodoItem(
                 title = "Learn Spring Boot",
-                desc = "Learn how to use Spring Boot",
+                description = "Learn how to use Spring Boot",
                 status = Status.TODO,
                 date = Date(),
                 subtodos = emptyList()
@@ -37,7 +37,7 @@ class ToDoController(
         val subtodos = httpEntity.subtodosJson?.map {
             TodoItem(
                 title = it.title.orEmpty(),
-                desc = it.desc.orEmpty(),
+                description = it.desc,
                 status = Status.TODO,
                 date = Date(),
                 subtodos = emptyList()
@@ -46,7 +46,7 @@ class ToDoController(
         return todoRepo.save(
             TodoItem(
                 title = httpEntity.title.orEmpty(),
-                desc = httpEntity.desc.orEmpty(),
+                description = httpEntity.desc,
                 status = Status.TODO,
                 date = Date(),
                 subtodos = subtodos.orEmpty()
@@ -62,7 +62,7 @@ class ToDoController(
         val subtodos = httpEntity.subtodosJson?.map {
             TodoItem(
                 title = it.title.orEmpty(),
-                desc = it.desc.orEmpty(),
+                description = it.desc,
                 status = Status.TODO,
                 date = Date(),
                 subtodos = emptyList()
@@ -72,7 +72,7 @@ class ToDoController(
         val todo = todoRepo.findById(id).get()
         val newTodo = todo.copy(
             title = httpEntity.title.orEmpty(),
-            desc = httpEntity.desc,
+            description = httpEntity.desc,
             status = Status.TODO,
             date = Date(),
             subtodos = subtodos.orEmpty()
